@@ -1,0 +1,6 @@
+com\sopra\servicios\CalculadoraService.class
+com\sopra\controlador\CalculadoraController.class
+com\sopra\servicios\CalculadoraService$1.class
+com\sopra\ConfigAplicacion.class
+com\sopra\utilidades\Operacion.class
+com\sopra\servicios\ICalculadoraService.class
