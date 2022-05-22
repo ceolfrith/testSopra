@@ -5,7 +5,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
 
 
 /**
@@ -16,7 +15,6 @@ public class CalculadoraService implements ICalculadoraService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CalculadoraService.class);
 
-
     /**
      * @param cifra1
      * @param cifra2
@@ -24,23 +22,24 @@ public class CalculadoraService implements ICalculadoraService {
      * @return
      */
     @Override
-    public double calcula(BigDecimal cifra1, BigDecimal cifra2, String opParam) {
+    public double calcula(double cifra1, double cifra2, String opParam) {
 
         if (LOGGER.isDebugEnabled()) {
-            LOGGER.debug("Calcular rdo para : {} {} {}", cifra1, cifra2, opParam);
+            LOGGER.debug("Calcular resultado para : {} {} {}", cifra1, cifra2, opParam);
         }
 
         Operacion operacion = Operacion.computa(opParam);
 
         if(operacion == null) {
-            throw new RuntimeException("No se ha podido realizar operación: " + opParam);
+        	LOGGER.error("Operación no soportada: {}", opParam);
+            throw new RuntimeException("Operación no soportada: " + opParam);
         }
 
         switch (operacion) {
             case SUMA:
-                return cifra1.add(cifra2).doubleValue();
+                return cifra1 + cifra2;
             case RESTA:
-                return cifra1.subtract(cifra2).doubleValue();
+                return cifra1 - cifra2;
             default:
                 if(LOGGER.isErrorEnabled()) {
                     LOGGER.error("No es posible realizar la operación seleccionada: {}", operacion);
@@ -48,5 +47,6 @@ public class CalculadoraService implements ICalculadoraService {
                 throw new RuntimeException("No es posible realizar la operación seleccionada: " + operacion.toString());
 
         }
-    }
+     }
+        
 }

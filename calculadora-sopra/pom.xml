@@ -42,6 +42,17 @@
            <artifactId>tracer</artifactId>
            <version>1.0.0</version>
         </dependency>
+          
+        <dependency>
+   			<groupId>org.springdoc</groupId>
+   			<artifactId>springdoc-openapi-ui</artifactId>
+   			<version>1.6.6</version>
+		</dependency>
+		<dependency>
+   			<groupId>io.swagger.core.v3</groupId>
+   			<artifactId>swagger-annotations</artifactId>
+   			<version>2.1.2</version>
+		</dependency>
         
     </dependencies>
 
@@ -52,7 +63,7 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-install-plugin</artifactId>
                 <version>2.5.1</version>
-                <configuration>
+                	                <configuration>
                     <groupId>com.iteriam</groupId>
                     <artifactId>tracer</artifactId>
                     <version>1.0.0</version>
@@ -60,7 +71,9 @@
                     <file>${basedir}/lib/tracer-1.0.0.jar</file>
                     <generatePom>true</generatePom>
                 </configuration>
+
                 <executions>
+
                     <execution>
                         <id>install-jar-lib</id>
                         <goals>

@@ -1,8 +1,5 @@
 package com.sopra.servicios;
 
-import com.sopra.utilidades.Operacion;
-
-import java.math.BigDecimal;
 
 public interface ICalculadoraService {
 
@@ -11,8 +8,8 @@ public interface ICalculadoraService {
      *
      * @param cifra1
      * @param cifra2
-     * @param opParam 
+     * @param operacion 
      * @return rdo
      */
-    double calcula(BigDecimal cifra1, BigDecimal cifra2, String opParam);
+	double calcula(double cifra1, double cifra2, String operacion);
 }

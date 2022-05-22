@@ -34,6 +34,6 @@ public enum Operacion {
             }
         }
 
-        throw new RuntimeException("Operación no computable: " + valor);
+        return null;
     }
 }
